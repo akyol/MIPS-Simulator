@@ -31,6 +31,7 @@
         <th>Opcode</th>
         <th>Mode</th>
         <th>Signed</th>
+        <th colspan="3">Inputs</th>
       </tr>
     </thead>
     <tbody>
@@ -60,20 +61,38 @@
             <option value="u">Yes</option>
           </select>
         </td>
+        <td>
+          <select id="registerOne">
+
+          </select>
+        </td>
+        <td>
+          <select id="registerTwo">
+
+          </select>
+        </td>
+        <td>
+          <select id="registerThree">
+
+          </select>
+        </td>
+        <td style="display: none">
+            <input id="immediate" type="number" value="0">
+        </td>
       </tr>
     </tbody>
   </table>
-  <div id="pc">0</div>
-  <div id="memory">0</div>
-  <table id="registers">
+  <div id="pc">PC: 0</div>
+  <div id="memory">Memory:0</div>
+  <table>
     <thead>
       <tr>
         <th>Registers</th>
         <th>Value</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
+    <tbody id="registers">
+      <!-- <tr>
         <th>$zero</th>
         <th id="zero">0</th>
       </tr>
@@ -200,15 +219,15 @@
       <tr>
         <th>$ra</th>
         <th id="ra">0</th>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
 
   </div>
   <!-- append assembly instructions done to this div -->
   <div id="instructionDone">
-    addi  $t2, $t0, 1<br>
-    and   $t2, $t0, 5<br>
+    addi $t2, $t0, 1<br>
+    and $t2, $t0, 5<br>
   </div>
 </body>
 
