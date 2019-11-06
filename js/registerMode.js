@@ -4,18 +4,30 @@
  * Project 1
  */
 
- function loadWord() {
+function loadWord() {   // load from memory into register
+    var rd = 
+    var offset = 
+}
 
- }
-
- function storeWord() {
-
+function storeWord() {  // store value into memory
+    var rd = 
+    var offset = 
 }
 
 function branchEqual() {
+    var rd =  
+    var rt = 
+    var label = 
+    if (rd == rt){
 
+    }
 }
 
 function branchNotEqual() {
-    
+    var rd =  
+    var rt =
+    var label = 
+    if (rd != rt){
+        
+    }
 }
