@@ -40,6 +40,7 @@ function jumpPC() {
  * Function that does the ADD, ADDI, ADDU, and ADDIU instruction
  */
 function add() {
+    //pc++;
     var mode = $("#filterMode").val();
     var signed = $("#filterSigned").val();
     var src1 = getRegisterVal("registerTwo");
@@ -58,32 +59,61 @@ function add() {
     } else {
         alert("overflow error");
     }
+    
 }
 
 /**
  * Function that does the OR and ORI instruction
  */
 function or() {
-
+    var mode = $("#filterMode").val();
+    var src1 = getRegisterVal("registerTwo");
+    var src2;
+    if (mode == "i") {
+        src2 = parseInt($("#immediate").val());
+    } else {
+        src2 = getRegisterVal("registerThree");
+    }
+    var result = src1 || src2;
+    setRegisterVal("registerOne", result);
 }
 
 /**
  * Function that does AND and ANDI instruction
  */
 function and() {
-
+    var mode = $("#filterMode").val();
+    var src1 = getRegisterVal("registerTwo");
+    var src2;
+    if (mode == "i") {
+        src2 = parseInt($("#immediate").val());
+    } else {
+        src2 = getRegisterVal("registerThree");
+    }
+    var result = src1 && src2;
+    setRegisterVal("registerOne", result);
 }
 
 function lw() {
-
+    var src1 = getRegisterVal("registerTwo");
+    var result = memory[src1 + offset];
+    setRegisterVal("registerOne", result);
 }
 
 function sw() {
-
+    var src1 = getRegisterVal("registerOne");
+    var src2 = getRegisterVal("registerTwo");
+    memory[src1 + offset] = src1;
+    setRegisterVal("registerOne", result);
 }
 
 function beq() {
-
+    var src1 = getRegisterVal("registerOne");
+    var src2 = getRegisterVal("registerTwo");
+    var label = getRegisterVal("registerThree");
+    if(src1 == src2){
+        
+    }
 }
 
 function bne() {
