@@ -8,7 +8,7 @@
  * Operations that are executed for MIPS simulator
  */
 
-
+// Maximum and minimum values for 32 bit signed
 var maxVal = 2147483647;
 var minVal = -2147483648;
 
@@ -25,22 +25,14 @@ function getRegisterVal(reg) {
  * @param {Value to set for register} val 
  */
 function setRegisterVal(reg, val) {
-    var newVal = getRegisterVal(reg) + parseInt(val);
-    $("#" + $("#" + reg).val()).val(newVal);
-}
-
-/**
- * When called, increments PC + 4
- */
-function jumpPC() {
-     
+    // var newVal = getRegisterVal(reg) + parseInt(val);
+    $("#" + $("#" + reg).val()).val(parseInt(val));
 }
 
 /**
  * Function that does the ADD, ADDI, ADDU, and ADDIU instruction
  */
 function add() {
-    //pc++;
     var mode = $("#filterMode").val();
     var signed = $("#filterSigned").val();
     var src1 = getRegisterVal("registerTwo");
@@ -74,7 +66,7 @@ function or() {
     } else {
         src2 = getRegisterVal("registerThree");
     }
-    var result = src1 || src2;
+    var result = src1 | src2;
     setRegisterVal("registerOne", result);
 }
 
@@ -90,10 +82,11 @@ function and() {
     } else {
         src2 = getRegisterVal("registerThree");
     }
-    var result = src1 && src2;
+    var result = src1 & src2;
     setRegisterVal("registerOne", result);
 }
 
+// TODO:
 function lw() {
     var src1 = getRegisterVal("registerTwo");
     var result = memory[src1 + offset];
@@ -103,27 +96,33 @@ function lw() {
 function sw() {
     var src1 = getRegisterVal("registerOne");
     var src2 = getRegisterVal("registerTwo");
-    memory[src1 + offset] = src1;
-    setRegisterVal("registerOne", result);
+    var offset = parseInt($("#immediate").val());
+    var loc = src1 + offset;
+    memory[loc] = src2;
+    $("#m" + loc).html(src2);
 }
 
+// TODO:
 function beq() {
     var src1 = getRegisterVal("registerOne");
     var src2 = getRegisterVal("registerTwo");
-    var label = getRegisterVal("registerThree");
-    if(src1 == src2){
-        
+    var offset = parseInt($("#immediate").val());
+    if (src1 == src2) {
+        incrementPc(offset);
     }
 }
 
+// TODO:
 function bne() {
 
 }
 
+// TODO:
 function j() {
 
 }
 
+// TODO:
 function jr() {
 
 }

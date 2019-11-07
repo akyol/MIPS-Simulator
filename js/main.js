@@ -57,8 +57,28 @@ $(document).ready(function () {
     }
     $("#filterOpcode").change(setArguments);    // listens for changes on opcode
     $("#filterMode").change(setArguments);      // listens for changes on mode
-    $("#execute").click(window[$("#filterOpcode").val()]);      // once execute button is clicked, do instruction
+    $("#execute").click(chooseOperation);      // once execute button is clicked, do instruction
 });
+
+/**
+ * Parses Opcode and calls its corresponding function
+ * Increments PC + 4 as well
+ */
+function chooseOperation() {
+    var opcode = $("#filterOpcode").val();
+    var func = new Function(opcode + "();");
+    incrementPc(4);
+    func();
+}
+
+/**
+ * Increments current PC by whatever offset
+ * @param {PC offset} offset 
+ */
+function incrementPc(offset) {
+    pc += offset;
+    $("#pc").html(pc);
+}
 
 /**
  * Sets inputs of corresponding opcodes and modes
@@ -94,7 +114,7 @@ function setArguments() {
         $("#filterSigned").css("color", "grey");
         $("#registerOne").parent().css("display", "table-cell");
         $("#registerTwo").parent().css("display", "table-cell");
-        $("#immediate").parent().css("display", "none");
+        $("#immediate").parent().css("display", "table-cell");
         $("#registerThree").parent().css("display", "none");
     } else {
         $("#filterMode").attr("disabled", "true");
