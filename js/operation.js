@@ -120,6 +120,7 @@ function bne() {
     var offset = parseInt($("#immediate").val());
     if (src1 != src2) {
         incrementPc(offset);
+    }
 }
 
 // TODO:
