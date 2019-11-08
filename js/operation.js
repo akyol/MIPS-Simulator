@@ -89,7 +89,8 @@ function and() {
 // TODO:
 function lw() {
     var src1 = getRegisterVal("registerTwo");
-    var result = memory[src1 + offset];
+    var loc = src1 + offset
+    var result = memory[loc];
     setRegisterVal("registerOne", result);
 }
 
@@ -114,7 +115,11 @@ function beq() {
 
 // TODO:
 function bne() {
-
+    var src1 = getRegisterVal("registerOne");
+    var src2 = getRegisterVal("registerTwo");
+    var offset = parseInt($("#immediate").val());
+    if (src1 != src2) {
+        incrementPc(offset);
 }
 
 // TODO:
