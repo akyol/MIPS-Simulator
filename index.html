@@ -79,10 +79,13 @@
         <td style="display: none">
             <input id="immediate" type="number" value="0">
         </td>
+        <td>
+          <button id="execute">Execute</button>
+        </td>
       </tr>
     </tbody>
   </table>
-  <button id="execute">Execute</button>
+  
   <!-- <table>
     <thead>
       <tr>
@@ -96,7 +99,11 @@
   </table> -->
   <div>PC</div>
   <div id="pc">0</div>
-  <div id="memory">Memory</div>
+
+  <div id="container">
+  <div id="memory">Memory
+  
+  <div id="registerTable">
   <table>
     <thead>
       <tr>
@@ -236,7 +243,8 @@
     </tbody>
   </table>
 
-  </div>
+</div>
+</div>
   <!-- append assembly instructions done to this div -->
   <div id="instructionDone">
     addi $t2, $t0, 1<br>

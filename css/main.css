@@ -1,3 +1,15 @@
 th {
   text-align: center;
 }
+
+#memory{
+  width: 70%;
+  
+}
+#registerTable{
+ float: right;
+ /* height: 571px ; */
+ /* overflow-y:scroll;  */
+
+}
+
