@@ -91,9 +91,8 @@ function lw() {
     var src1 = getRegisterVal("registerOne");
     var src2 = getRegisterVal("registerTwo");
     var offset = parseInt($("#immediate").val());
-    var loc = src1 + offset;
-    var result = $("#m" + loc).html(loc);
-    setRegisterVal("registerOne", result);
+    src2 = memory[src1 + offset];
+    setRegisterVal("registerOne", src2);
 
 }
 
@@ -132,7 +131,7 @@ function j() {
     incrementPc(offset);
 }
 
-// TODO:
+// TODO: 
 function jr() {
     src1 = getRegisterVal("registerOne");
     incrementPc(src1);
