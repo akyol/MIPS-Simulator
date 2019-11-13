@@ -2,14 +2,32 @@ th {
   text-align: center;
 }
 
+section{
+  width: 1200px;
+  height: 571px;
+}
+
+textarea {
+  float: left;
+  width: 500px;
+  height: 571px;
+
+}
+
+#pc{
+
+  margin: 20px;
+} 
+
 #memory{
-  width: 70%;
+  margin: 20px;
+
   
 }
-#registerTable{
- float: right;
- /* height: 571px ; */
- /* overflow-y:scroll;  */
+#register{
+  margin: 20px;
+  height: 571px; 
+  overflow-y:scroll; 
 
 }
 
