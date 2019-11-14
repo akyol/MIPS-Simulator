@@ -12,28 +12,34 @@ textarea {
   width: 500px;
   height: 500px;
   overflow-y: scroll;
-
+  resize: none;
 }
 
 #pc{
-
   margin: 20px;
 } 
 
 #memory{
   margin: 20px;
-
-  
 }
+
+
 #register{
   margin: 20px;
   height: 571px; 
-  overflow-y:scroll; 
+  overflow-y: scroll; 
+}
 
+#register_td{
+  padding: 15px;
 }
 
 #body{
   vertical-align: text-top;
+}
+
+#immediate{
+  width:70px;
 }
 
 #fierihelp {
@@ -43,5 +49,9 @@ textarea {
 
 #fierihelp:hover {
   background-color: aqua;
+}
+
+#wrapper{
+  width: 1000px; margin-left: auto; margin-right: auto;
 }
 
