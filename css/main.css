@@ -31,3 +31,12 @@ textarea {
 
 }
 
+#fierihelp {
+  width:200px;
+  height:300px;
+}
+
+#fierihelp:hover {
+  background-color: aqua;
+}
+
