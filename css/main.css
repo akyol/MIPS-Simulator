@@ -10,7 +10,8 @@ section{
 textarea {
   float: left;
   width: 500px;
-  height: 571px;
+  height: 500px;
+  overflow-y: scroll;
 
 }
 
@@ -29,5 +30,9 @@ textarea {
   height: 571px; 
   overflow-y:scroll; 
 
+}
+
+#body{
+  vertical-align: text-top;
 }
 
