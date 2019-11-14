@@ -55,6 +55,45 @@ $(document).ready(function () {
         $("#registerTwo").append(option.cloneNode(true));
         $("#registerThree").append(option.cloneNode(true));
     }
+
+    $("#fierihelp").on("mouseenter", function (event) {
+        // $(this).addClass("gray");
+        var div = document.createElement("div");
+        div.id = "chart";
+        div.style.border = "thick solid black";
+        div.style.backgroundColor = "white";
+        var img = document.createElement("img");
+        var caption = document.createElement("p");
+        caption.style.textAlign = "center";
+        img.src = "images/chart.png";
+        img.alt = "Chart";
+        img.style.width = "500px";
+        caption.innerHTML = "Here is the following format to follow!";
+        div.append(img);
+        div.append(caption);
+        div.style.position = "absolute";
+        div.style.top = event.pageY + 20 + "px";
+        div.style.left = event.pageX + 20 + "px";
+        $("body").append(div);
+        $("#chart").fadeIn(1000);
+
+    });
+
+    $("#fierihelp").on("click", function (event) {
+        var audio = new Audio('sounds/flavortown.mp3');
+        audio.play();
+    });
+
+    $("#fierihelp").on("mousemove", function(event) {
+        $("#chart").css("top", event.pageY + 20 + "px");
+        $("#chart").css("left", event.pageX + 20 + "px");
+    });
+
+    $("#fierihelp").on("mouseleave", function () {
+        // $(this).removeClass("gray");
+        $("#chart").remove();
+    });
+
     $("#filterOpcode").change(setArguments);    // listens for changes on opcode
     $("#filterMode").change(setArguments);      // listens for changes on mode
     $("#execute").click(chooseOperation);      // once execute button is clicked, do instruction
@@ -68,6 +107,7 @@ function chooseOperation() {
     var opcode = $("#filterOpcode").val();
     var func = new Function(opcode + "();");
     incrementPc(4);
+    printOperation();
     func();
 }
 
@@ -78,6 +118,34 @@ function chooseOperation() {
 function incrementPc(offset) {
     pc += offset;
     $("#pc").html(pc);
+}
+
+function printOperation() {
+    var toPrint = "";
+    toPrint += $("#filterOpcode").val();
+    var mode = $("#filterMode");
+    if (mode.attr("disabled") == null) {
+        toPrint += mode.val();
+    }
+    
+    var sign = $("#filterSigned");
+    if (sign.attr("disabled") == null) {
+        toPrint += sign.val();
+    }
+    toPrint += " $" + $("#registerOne").val();
+    var r2 = $("#registerTwo");
+    if (r2.parent().css("display") == "table-cell") {
+        toPrint += ", $" + r2.val();
+    }
+    var r3 = $("#registerThree");
+    if (r3.parent().css("display") == "table-cell") {
+        toPrint += ", $" + r3.val();
+    }
+    var imm = $("#immediate");
+    if (imm.parent().css("display") == "table-cell") {
+        toPrint += ", " + imm.val();
+    }
+    $("textarea").text($("textarea").text() + toPrint + "\n");
 }
 
 /**
