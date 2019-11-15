@@ -6,16 +6,16 @@
 $(window).on('load', function() {
     addRegisterTest();
     addImmediateTest();
-<<<<<<< HEAD
-    beqTest()
-=======
     andRegisterTest();
     andImmediateTest();
     orRegisterTest();
     orImmediateTest();
     storeWordTest();
     loadWordTest();
->>>>>>> a89e8cddb50e7df1f53d7e94a507c13b0a49d8cc
+    beqTest();
+    bneTest();
+    jTest();
+    jrTest();
 });
 
 
@@ -51,7 +51,6 @@ function addImmediateTest() {
     console.log('The result is ' + getRegisterVal("registerOne"));
 }
 
-<<<<<<< HEAD
 function beqTest(){
     $("#filterOpcode").val("beq");
     $("#filterOpcode").trigger("change");
@@ -102,7 +101,6 @@ function jrTest(){
     chooseOperation();
     console.log('The result is ' + pc);
 }
-=======
 
 function andRegisterTest() {
     
@@ -214,4 +212,3 @@ function loadWordTest() {
     console.log('The value at memory location 0 loaded into register $a0 with ' + getRegisterVal("registerOne"));
 }
 
->>>>>>> a89e8cddb50e7df1f53d7e94a507c13b0a49d8cc
