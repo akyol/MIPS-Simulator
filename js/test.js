@@ -4,14 +4,14 @@
  */
 
 $(window).on('load', function() {
-    // addRegisterTest();
-    // addImmediateTest();
-    // andRegisterTest();
-    // andImmediateTest();
-    // orRegisterTest();
-    // orImmediateTest();
-    // storeWordTest();
-    // loadWordTest();
+    addRegisterTest();
+    addImmediateTest();
+    andRegisterTest();
+    andImmediateTest();
+    orRegisterTest();
+    orImmediateTest();
+    storeWordTest();
+    loadWordTest();
 });
 
 
@@ -155,6 +155,6 @@ function loadWordTest() {
     $("#immediate").val(0);
 
     chooseOperation();
-    console.log('The value at memory locatoin 0 loaded into ' + getRegisterVal("registerOne"));
+    console.log('The value at memory location 0 loaded into register $a0 with ' + getRegisterVal("registerOne"));
 }
 
