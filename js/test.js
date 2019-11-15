@@ -6,6 +6,7 @@
 $(window).on('load', function() {
     addRegisterTest();
     addImmediateTest();
+    beqTest()
 });
 
 
@@ -41,3 +42,53 @@ function addImmediateTest() {
     console.log('The result is ' + getRegisterVal("registerOne"));
 }
 
+function beqTest(){
+    $("#filterOpcode").val("beq");
+    $("#filterOpcode").trigger("change");
+    
+    $("#registerOne").val("v0");
+    $("#registerTwo").val("v1");
+    $("#immediate").val(3);
+
+    setRegisterVal("registerOne", 1);
+    setRegisterVal("registerTwo", 1);
+    
+    chooseOperation();
+    console.log('The result is ' + pc);
+}
+
+function bneTest(){
+    $("#filterOpcode").val("beq");
+    $("#filterOpcode").trigger("change");
+    
+    $("#registerOne").val("v0");
+    $("#registerTwo").val("v1");
+    $("#immediate").val(3);
+
+    setRegisterVal("registerOne", 1);
+    setRegisterVal("registerTwo", 2);
+    
+    chooseOperation();
+    console.log('The result is ' + pc);
+}
+
+function jTest(){
+    $("#filterOpcode").val("j");
+    $("#filterOpcode").trigger("change");
+    
+    $("#immediate").val(3);
+    
+    chooseOperation();
+    console.log('The result is ' + pc);
+}
+
+function jrTest(){
+    $("#filterOpcode").val("jr");
+    $("#filterOpcode").trigger("change");
+    
+    $("#registerOne").val("v0");
+    setRegisterVal("registerOne", 1);
+    
+    chooseOperation();
+    console.log('The result is ' + pc);
+}
