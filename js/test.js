@@ -3,20 +3,41 @@
  * Increments PC + 4 as well
  */
 
+$(window).on('load', function() {
+    addRegisterTest();
+    addImmediateTest();
+});
 
-chooseOperation();
 
-function chooseOperation() {
-    document.getElementById("registerTwo").value = 5;
-    document.getElementById("registerThree").value = 5;
-    // setRegisterVal("registerTwo", 5);
-    // setRegisterVal("registerThree", 6);
-    document.getElementById("filterMode").value = "r";
-    document.getElementById("filterSigned").value = "u";
+function addRegisterTest() {
     
-    var func = new Function("add();");
-    incrementPc(4);
-    printOperation();
-    func();
+    $("#filterOpcode").val("add");
+    $("#filterMode").val(""); // register: "", immediate: "i"
+    $("#filterSigned").val(""); // signed: "", unsigned: "u"
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", 5);
+
+    $("#registerThree").val("a1");
+    setRegisterVal("registerThree", 6);
+
+    chooseOperation();
+    console.log('The result is ' + getRegisterVal("registerOne"));
+}
+
+function addImmediateTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val("i"); // register: "", immediate: "i"
+    $("#filterSigned").val(""); // signed: "", unsigned: "u"
+
+    $("#registerOne").val("v0");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", 6);
+
+    $("#immediate").val(12);
+
+    chooseOperation();
+    console.log('The result is ' + getRegisterVal("registerOne"));
 }
 
