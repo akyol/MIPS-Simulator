@@ -10,16 +10,19 @@
 */
 
 
-// next test to do
+// index of current test
 var testCount = -1;
 
-// tests to do
+// list of all tests to run
 var tests = [addRegisterTest, addImmediateTest, addRegisterUnsignedTest, addImmediateUnsignedTest,
     addRegisterOverflowTest, addImmediateOverflowTest, andRegisterTest, andImmediateTest,
-    orRegisterTest, orImmediateTest, storeWordTest, loadWordTest, beqTest, beqNotTest,
-    bneTest, bneNotTest, jTest, jrTest, zeroWriteTest];
+    orRegisterTest, orImmediateTest, storeWordTest, loadWordTest,
+    beqTest, beqNotTest, bneTest, bneNotTest, jTest, jrTest, zeroWriteTest];
 
-// when next button is clicked load next arguments
+/**
+ * When next button is clicked, load next test instruction
+ * Or when prev button is clicked, load previous test instruction
+ */
 $(window).on('load', function () {
     $("#next").on("click", function (event) {
         if (testCount < tests.length - 1) {
@@ -42,7 +45,9 @@ $(window).on('load', function () {
     });
 });
 
-// reset all arguments
+/**
+ * Helper function that resets all arguments
+ */
 function resetArguments() {
     pc = 0;
     $("#pc").html(pc);
@@ -58,7 +63,9 @@ function resetArguments() {
 }
 
 /**
- * tests if add register based works accordingly
+ * tests if add register based works accordingly.
+ * also tests if the general instruction execution works correctly for
+ * getRegisterVal(), setRegisterVal(), and incrementPc();
  */
 function addRegisterTest() {
     $("#filterOpcode").val("add");
@@ -76,6 +83,9 @@ function addRegisterTest() {
     setRegisterVal("registerThree", 6);
 
     // look for $v0 = 11
+    // look for $a0 = 5
+    // look for $a1 = 6
+    // look for pc = 4
 }
 
 /**

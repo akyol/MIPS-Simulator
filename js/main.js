@@ -93,7 +93,6 @@ $(document).ready(function () {
     });
 
     $("#fierihelp").on("mouseleave", function () {
-        // $(this).removeClass("gray");
         $("#chart").remove();
     });
 
@@ -123,6 +122,9 @@ function incrementPc(offset) {
     $("#pc").html(pc);
 }
 
+/**
+ * Prints the instruction done to the textbox
+ */
 function printOperation() {
     var toPrint = "";
     toPrint += $("#filterOpcode").val();
@@ -151,11 +153,19 @@ function printOperation() {
     $("textarea").text($("textarea").text() + toPrint + "\n");
 }
 
+/**
+ * Hides the selected register in GUI
+ * @param {Register to hide} register 
+ */
 function hideRegister(register) {
     $("#" + register).parent().css("display", "none");
     $("#" + register + "Head").css("display", "none");
 }
 
+/**
+ * Shows the selected register in GUI
+ * @param {Register to show} register 
+ */
 function showRegister(register) {
     $("#" + register).parent().css("display", "table-cell");
     $("#" + register + "Head").css("display", "table-cell");
@@ -169,9 +179,7 @@ function setArguments() {
     var mode = $("#filterMode").val();
 
     if (opcode == "add" || opcode == "or" || opcode == "and") {
-        // $("#registerOne").parent().css("display", "table-cell");
         showRegister("registerOne");
-        // $("#registerTwo").parent().css("display", "table-cell");
         showRegister("registerTwo");
         $("#filterMode").removeAttr("disabled");
         $("#filterMode").css("color", "black");
@@ -181,17 +189,12 @@ function setArguments() {
         } else {
             $("#filterSigned").attr("disabled", "true");
             $("#filterSigned").css("color", "grey");
-            
         }
         if (mode == "i") {
-            // $("#immediate").parent().css("display", "table-cell");
             showRegister("immediate");
-            // $("#registerThree").parent().css("display", "none");
             hideRegister("registerThree");
         } else {
-            // $("#immediate").parent().css("display", "none");
             hideRegister("immediate");
-            // $("#registerThree").parent().css("display", "table-cell");
             showRegister("registerThree");
         }
     } else if (opcode == "lw" || opcode == "sw" || opcode == "beq" || opcode == "bne") {
@@ -199,32 +202,22 @@ function setArguments() {
         $("#filterSigned").attr("disabled", "true");
         $("#filterMode").css("color", "grey");
         $("#filterSigned").css("color", "grey");
-        // $("#registerOne").parent().css("display", "table-cell");
         showRegister("registerOne");
-        // $("#registerTwo").parent().css("display", "table-cell");
         showRegister("registerTwo");
-        // $("#immediate").parent().css("display", "table-cell");
         showRegister("immediate");
-        // $("#registerThree").parent().css("display", "none");
         hideRegister("registerThree");
     } else {
         $("#filterMode").attr("disabled", "true");
         $("#filterSigned").attr("disabled", "true");
         $("#filterMode").css("color", "grey");
         $("#filterSigned").css("color", "grey");
-        // $("#registerTwo").parent().css("display", "none");
         hideRegister("registerTwo");
-        // $("#registerThree").parent().css("display", "none");
         hideRegister("registerThree");
         if (opcode == "j") {
-            // $("#immediate").parent().css("display", "table-cell");
             showRegister("immediate");
-            // $("#registerOne").parent().css("display", "none");
             hideRegister("registerOne");
         } else {
-            // $("#immediate").parent().css("display", "none");
             hideRegister("immediate");
-            // $("#registerOne").parent().css("display", "table-cell");
             showRegister("registerOne");
         }
 
