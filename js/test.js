@@ -130,7 +130,7 @@ function beqTest(){
 }
 
 function bneTest(){
-    $("#filterOpcode").val("beq");
+    $("#filterOpcode").val("bne");
     $("#filterOpcode").trigger("change");
     
     $("#registerOne").val("v0");
