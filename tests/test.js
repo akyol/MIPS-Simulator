@@ -109,7 +109,6 @@ function addImmediateUnsignedTest() {
 }
 
 function addRegisterOverflowTest() {
-    
     $("#filterOpcode").val("add");
     $("#filterMode").val(""); // register: "", immediate: "i"
     $("#filterSigned").val(""); // signed: "", unsigned: "u"
