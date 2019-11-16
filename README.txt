@@ -1,5 +1,7 @@
 READ ME
 
+Repo Link: https://github.com/akyol/MIPS-Simulator
+
 Project Decisions: 
 
 As a group, we decided to structure the in terms of machine code, but the GUI is structured in a way so that the user can have an easier time using the instructions.
@@ -28,6 +30,9 @@ You will also see an index.html and a testIndex.html. The index.html file is to 
 
 
 The index.html GUI:
+This is the main GUI to run. You can open this file either directly in the folder or by following this online
+Link: https://akyol.github.io/MIPS-Simulator/index.html
+
 On the GUI itself, you will see the project group name on the top of the screen. From there you will see drop down option buttons that shows "Opcode", "Mode", "Signed", "RS", "RT", "RD", "Imm", and an "Execute" button. In addition you will see the PC counter, the memory, as well as all the registers and their values. At the bottom you will see the glorious "Guy Fieri", the king of flavortown.
 
 The Opcode drop down is used for picking the instruction you want. 
@@ -55,4 +60,6 @@ If you hover your mouse over Guy Fieri, you will see the basic instruction forma
 
 
 The testIndex.html GUI:
-This html is for testing. It's almost identical to the index.html besides some modifications so it can run the test. Press next to load the next test and press execute to run. There is also a previous button to see the previous test case. Repeat until text box says done.
+This html is for testing. Can be opened directly from the file or can be done through following this online link: https://akyol.github.io/MIPS-Simulator/testIndex.html
+It's almost identical to the index.html besides some modifications so it can run the test. Press next to load the next test and press execute to run. There is also a previous button to see the previous test case. Repeat until text box says done.
+Text box will contain test method and tell you what value to be looking for test validation.
