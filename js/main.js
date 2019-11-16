@@ -148,6 +148,16 @@ function printOperation() {
     $("textarea").text($("textarea").text() + toPrint + "\n");
 }
 
+function hideRegister(register) {
+    $("#" + register).parent().css("display", "none");
+    $("#" + register + "Head").css("display", "none");
+}
+
+function showRegister(register) {
+    $("#" + register).parent().css("display", "table-cell");
+    $("#" + register + "Head").css("display", "table-cell");
+}
+
 /**
  * Sets inputs of corresponding opcodes and modes
  */
@@ -156,8 +166,10 @@ function setArguments() {
     var mode = $("#filterMode").val();
 
     if (opcode == "add" || opcode == "or" || opcode == "and") {
-        $("#registerOne").parent().css("display", "table-cell");
-        $("#registerTwo").parent().css("display", "table-cell");
+        // $("#registerOne").parent().css("display", "table-cell");
+        showRegister("registerOne");
+        // $("#registerTwo").parent().css("display", "table-cell");
+        showRegister("registerTwo");
         $("#filterMode").removeAttr("disabled");
         $("#filterMode").css("color", "black");
         if (opcode == "add") {
@@ -169,34 +181,48 @@ function setArguments() {
             
         }
         if (mode == "i") {
-            $("#immediate").parent().css("display", "table-cell");
-            $("#registerThree").parent().css("display", "none");
+            // $("#immediate").parent().css("display", "table-cell");
+            showRegister("immediate");
+            // $("#registerThree").parent().css("display", "none");
+            hideRegister("registerThree");
         } else {
-            $("#immediate").parent().css("display", "none");
-            $("#registerThree").parent().css("display", "table-cell");
+            // $("#immediate").parent().css("display", "none");
+            hideRegister("immediate");
+            // $("#registerThree").parent().css("display", "table-cell");
+            showRegister("registerThree");
         }
     } else if (opcode == "lw" || opcode == "sw" || opcode == "beq" || opcode == "bne") {
         $("#filterMode").attr("disabled", "true");
         $("#filterSigned").attr("disabled", "true");
         $("#filterMode").css("color", "grey");
         $("#filterSigned").css("color", "grey");
-        $("#registerOne").parent().css("display", "table-cell");
-        $("#registerTwo").parent().css("display", "table-cell");
-        $("#immediate").parent().css("display", "table-cell");
-        $("#registerThree").parent().css("display", "none");
+        // $("#registerOne").parent().css("display", "table-cell");
+        showRegister("registerOne");
+        // $("#registerTwo").parent().css("display", "table-cell");
+        showRegister("registerTwo");
+        // $("#immediate").parent().css("display", "table-cell");
+        showRegister("immediate");
+        // $("#registerThree").parent().css("display", "none");
+        hideRegister("registerThree");
     } else {
         $("#filterMode").attr("disabled", "true");
         $("#filterSigned").attr("disabled", "true");
         $("#filterMode").css("color", "grey");
         $("#filterSigned").css("color", "grey");
-        $("#registerTwo").parent().css("display", "none");
-        $("#registerThree").parent().css("display", "none");
+        // $("#registerTwo").parent().css("display", "none");
+        hideRegister("registerTwo");
+        // $("#registerThree").parent().css("display", "none");
+        hideRegister("registerThree");
         if (opcode == "j") {
-            $("#immediate").parent().css("display", "table-cell");
-            $("#registerOne").parent().css("display", "none");
+            // $("#immediate").parent().css("display", "table-cell");
+            showRegister("immediate");
+            // $("#registerOne").parent().css("display", "none");
+            hideRegister("registerOne");
         } else {
-            $("#immediate").parent().css("display", "none");
-            $("#registerOne").parent().css("display", "table-cell");
+            // $("#immediate").parent().css("display", "none");
+            hideRegister("immediate");
+            // $("#registerOne").parent().css("display", "table-cell");
+            showRegister("registerOne");
         }
 
     }

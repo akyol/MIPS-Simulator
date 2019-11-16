@@ -25,34 +25,9 @@ function getRegisterVal(reg) {
  * @param {Value to set for register} val 
  */
 function setRegisterVal(reg, val) {
-    // var newVal = getRegisterVal(reg) + parseInt(val);
     $("#" + $("#" + reg).val()).val(parseInt(val));
 }
 
-/**
- * Function that does the ADD, ADDI, ADDU, and ADDIU instruction
- * 
- * var mode = $("#filterMode").val();
-    var signed = $("#filterSigned").val();
-    var src1 = getRegisterVal("registerOne");
-    var dest;
-    if (mode == "i") {
-        src2 = parseInt($("#immediate").val());
-        dest = "registerTwo";
-    } else {
-        src2 = getRegisterVal("registerTwo");
-        dest = "registerThree";
-    }
-    var result = src1 + src2;
-    if (signed == "u") {
-        result = result % maxVal;
-        setRegisterVal(dest, result);
-    } else if (result <= maxVal && result >= minVal) {
-        setRegisterVal(dest, result);
-    } else {
-        alert("overflow error");
-    }
- */
 function add() {
     var mode = $("#filterMode").val();
     var signed = $("#filterSigned").val();

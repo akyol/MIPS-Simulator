@@ -1,4 +1,4 @@
-th {
+th, h1, h2 {
   text-align: center;
 }
 
@@ -27,8 +27,15 @@ textarea {
 #register{
   margin: 20px;
   height: 571px; 
-  overflow-y:scroll; 
+  overflow-y:scroll;
+}
 
+#body{
+  vertical-align: text-top;
+}
+
+#immediate{
+  width:70px;
 }
 
 #fierihelp {
@@ -36,3 +43,13 @@ textarea {
   height:300px;
 }
 
+.row {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
