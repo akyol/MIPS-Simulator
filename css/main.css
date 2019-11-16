@@ -9,9 +9,10 @@ section{
 
 textarea {
   float: left;
-  width: 500px;
-  height: 571px;
-
+  width: 510px;
+  height: 510px;
+  overflow-y: scroll;
+  resize: none;
 }
 
 #pc{
@@ -52,4 +53,8 @@ textarea {
 
 .column {
   flex: 50%;
+}
+
+#filterSigned {
+  width: 75px;
 }

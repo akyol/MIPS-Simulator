@@ -76,6 +76,66 @@ function addImmediateTest() {
     $("#immediate").val(12);
 }
 
+function addRegisterUnsignedTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val(""); // register: "", immediate: "i"
+    $("#filterSigned").val("u"); // signed: "", unsigned: "u"
+
+    $("#filterOpcode").trigger("change");
+
+    $("#registerOne").val("v0");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", -5);
+
+    $("#registerThree").val("a1");
+    setRegisterVal("registerThree", -6);
+}
+
+function addImmediateUnsignedTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val("i"); // register: "", immediate: "i"
+    $("#filterSigned").val("u"); // signed: "", unsigned: "u"
+
+    $("#filterOpcode").trigger("change");
+
+    $("#registerOne").val("v0");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", -6);
+
+    $("#immediate").val(12);
+}
+
+function addRegisterOverflowTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val(""); // register: "", immediate: "i"
+    $("#filterSigned").val(""); // signed: "", unsigned: "u"
+
+    $("#filterOpcode").trigger("change");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", 1);
+
+    $("#registerThree").val("a1");
+    setRegisterVal("registerThree", 2147483647);
+}
+
+function addImmediateOverflowTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val("i"); // register: "", immediate: "i"
+    $("#filterSigned").val(""); // signed: "", unsigned: "u"
+
+    $("#filterOpcode").trigger("change");
+
+    $("#registerOne").val("v0");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", 2147483647);
+
+    $("#immediate").val(1);
+}
+
 // tests if beq works accordingly
 function beqTest(){
     $("#filterOpcode").val("beq");
