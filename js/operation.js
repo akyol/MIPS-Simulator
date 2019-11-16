@@ -26,9 +26,16 @@ function getRegisterVal(reg) {
  * @param {Value to set for register} val 
  */
 function setRegisterVal(reg, val) {
-    $("#" + $("#" + reg).val()).val(parseInt(val));
+    if ($("#" + reg).val() === "zero") {
+        alert("Cannot write on $zero");
+    } else {
+        $("#" + $("#" + reg).val()).val(parseInt(val));
+    }
 }
 
+/**
+ * Function that does ADDI, ADDU, ADDIU instruction
+ */
 function add() {
     var mode = $("#filterMode").val();
     var signed = $("#filterSigned").val();
@@ -85,7 +92,9 @@ function and() {
     setRegisterVal("registerOne", result);
 }
 
-// TODO:
+/**
+ * Function that does LW instruction
+ */
 function lw() {
     var src1 = getRegisterVal("registerOne");
     var src2 = getRegisterVal("registerTwo");
@@ -95,6 +104,9 @@ function lw() {
 
 }
 
+/**
+ * Function that does SW instruction
+ */
 function sw() {
     var src1 = getRegisterVal("registerOne");
     var src2 = getRegisterVal("registerTwo");
@@ -104,7 +116,9 @@ function sw() {
     $("#m" + loc).html(src2);
 }
 
-// TODO:
+/**
+ * Function that does BEQ instruction
+ */
 function beq() {
     var src1 = getRegisterVal("registerOne");
     var src2 = getRegisterVal("registerTwo");
@@ -114,7 +128,9 @@ function beq() {
     }
 }
 
-// TODO:
+/**
+* Function that does BNE instruction
+*/
 function bne() {
     var src1 = getRegisterVal("registerOne");
     var src2 = getRegisterVal("registerTwo");
@@ -124,13 +140,17 @@ function bne() {
     }
 }
 
-// TODO:
+/**
+ * Function that does J instruction
+ */
 function j() {
     var offset = parseInt($("#immediate").val());
     incrementPc(offset);
 }
 
-// TODO: 
+/**
+* Function that does JR instruction
+*/
 function jr() {
     src1 = getRegisterVal("registerOne");
     incrementPc(src1);
