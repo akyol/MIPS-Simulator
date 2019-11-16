@@ -88,7 +88,7 @@ function lw() {
     var src2 = getRegisterVal("registerTwo");
     var offset = parseInt($("#immediate").val());
     src2 = memory[src1 + offset];
-    setRegisterVal("registerOne", src2);
+    setRegisterVal("registerTwo", src2);
 
 }
 
