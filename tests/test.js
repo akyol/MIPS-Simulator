@@ -16,7 +16,7 @@ var testCount = -1;
 // tests to do
 var tests = [addRegisterTest, addImmediateTest,andRegisterTest, andImmediateTest,
             orRegisterTest, orImmediateTest, storeWordTest, loadWordTest, beqTest,
-            bneTest, jTest, jrTest];
+            bneTest, jTest, jrTest, zeroWriteTest];
 
 // when next button is clicked load next arguments
 $(window).on('load', function () {
@@ -391,4 +391,25 @@ function loadWordTest() {
     $("#immediate").val(0);
 
     // look for $v0 = 10
+}
+
+/**
+ * tests if writing zero fails
+ */ 
+function zeroWriteTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val(""); // register: "", immediate: "i"
+    $("#filterSigned").val(""); // signed: "", unsigned: "u"
+
+    $("#filterOpcode").trigger("change");
+
+    $("#registerOne").val("zero");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", 5);
+
+    $("#registerThree").val("a1");
+    setRegisterVal("registerThree", 6);
+
+    // look for alert that $zero cannot be written
 }

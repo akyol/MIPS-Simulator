@@ -26,7 +26,11 @@ function getRegisterVal(reg) {
  * @param {Value to set for register} val 
  */
 function setRegisterVal(reg, val) {
-    $("#" + $("#" + reg).val()).val(parseInt(val));
+    if ($("#" + reg).val() === "zero") {
+        alert("Cannot write on $zero");
+    } else {
+        $("#" + $("#" + reg).val()).val(parseInt(val));
+    }
 }
 
 /**

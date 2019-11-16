@@ -43,6 +43,9 @@ $(document).ready(function () {
         reg.setAttribute("type", "number");
         reg.setAttribute("value", 0);
         reg.setAttribute("id", registers[i]);
+        if (registers[i] == "zero") {
+            reg.readOnly = true;
+        }
         td.appendChild(reg);
         row.appendChild(td);
         $("#registers").append(row);
