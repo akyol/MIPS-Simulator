@@ -9,8 +9,8 @@ var testCount = -1;
 // tests to do
 var tests = [addRegisterTest, addImmediateTest, addRegisterUnsignedTest, addImmediateUnsignedTest,
             addRegisterOverflowTest, addImmediateOverflowTest, andRegisterTest, andImmediateTest,
-            orRegisterTest, orImmediateTest, storeWordTest, loadWordTest, beqTest,
-            bneTest, jTest, jrTest];
+            orRegisterTest, orImmediateTest, storeWordTest, loadWordTest, beqTest, beqNotTest,
+            bneTest, bneNotTest, jTest, jrTest];
 
 // when next button is clicked load next arguments
 $(window).on('load', function () {
@@ -151,6 +151,19 @@ function beqTest(){
     setRegisterVal("registerTwo", 1);
 }
 
+// tests if beq is not equal works accordingly
+function beqNotTest(){
+    $("#filterOpcode").val("beq");
+    $("#filterOpcode").trigger("change");
+    
+    $("#registerOne").val("v0");
+    $("#registerTwo").val("v1");
+    $("#immediate").val(3);
+
+    setRegisterVal("registerOne", 2);
+    setRegisterVal("registerTwo", 1);
+}
+
 // tests if bne works accordingly
 function bneTest(){
     $("#filterOpcode").val("bne");
@@ -162,6 +175,19 @@ function bneTest(){
 
     setRegisterVal("registerOne", 1);
     setRegisterVal("registerTwo", 2);
+}
+
+// tests if bne is equal works accordingly
+function bneNotTest(){
+    $("#filterOpcode").val("bne");
+    $("#filterOpcode").trigger("change");
+    
+    $("#registerOne").val("v0");
+    $("#registerTwo").val("v1");
+    $("#immediate").val(3);
+
+    setRegisterVal("registerOne", 1);
+    setRegisterVal("registerTwo", 1);
 }
 
 // tests if j works accordingly
