@@ -1,10 +1,10 @@
 # MIPS-Simulator READ ME
-Made by Flavortown
+Made by Flavortown (Abraham Lee, Tammy Vo, Jonathan Kim)
 
 
 ### Project Decisions: 
 
-As a group, we decided to structure the code in binary, but the GUI is structured in a way so that the user can have an easier time using the instructions.
+As a group, we decided to structure the code in terms of machine code, but the GUI is structured in a way so that the user can have an easier time using the instructions.
 
 As a group, we decided to use Javascript, HTML/CSS for the code and to display the GUI.
 
@@ -47,14 +47,11 @@ The execute button is to execute the instruction.
 
 Under this bar of instructions you will see a big text box that will auto populate the instructions depending on what instructions you executed.
 
-
 PC will increment by itself, the memory and register values will change depending on what instruction you use.
-
-
 
 If you hover your mouse over Guy Fieri, you will see the basic instruction format from the MIPS green card. (*NOTE if you click on him he will say his famous catch phrase! Careful about your volume, it maybe loud.)
 
 
 
 ### The testIndex.html GUI:
-This html is for testing. It's almost identical to the index.html besides some modifications so it can run the test. Press next to load the next test and press execute to run. Repeat until text box says done.
+This html is for testing. It's almost identical to the index.html besides some modifications so it can run the test. Press next to load the next test and press execute to run. Repeat until text box says done. There is also a previous button to see the previous test case.
