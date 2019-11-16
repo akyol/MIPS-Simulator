@@ -2,7 +2,7 @@
 Made by Flavortown
 
 
-###Project Decisions: 
+### Project Decisions: 
 
 As a group, we decided to structure the code in binary, but the GUI is structured in a way so that the user can have an easier time using the instructions.
 
@@ -10,7 +10,7 @@ As a group, we decided to use Javascript, HTML/CSS for the code and to display t
 
 
 
-###Project Files:
+### Project Files:
 
 The css folder contains styling the GUI.
 
@@ -29,7 +29,7 @@ You will also see an index.html and a testIndex.html. The index.html file is to 
 
 
 
-###The index.html GUI:
+### The index.html GUI:
 On the GUI itself, you will see the project group name on the top of the screen. From there you will see drop down option buttons that shows "Opcode", "Mode", "Signed", "RS", "RT", "RD", "Imm", and an "Execute" button. In addition you will see the PC counter, the memory, as well as all the registers and their values. At the bottom you will see the glorious "Guy Fieri", the king of flavortown.
 
 The Opcode drop down is used for picking the instruction you want. 
@@ -56,5 +56,5 @@ If you hover your mouse over Guy Fieri, you will see the basic instruction forma
 
 
 
-###The testIndex.html GUI:
+### The testIndex.html GUI:
 This html is for testing. It's almost identical to the index.html besides some modifications so it can run the test. Press next to load the next test and press execute to run. Repeat until text box says done.
