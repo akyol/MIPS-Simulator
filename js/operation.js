@@ -11,6 +11,7 @@
 // Maximum and minimum values for 32 bit signed
 var maxVal = 2147483647;
 var minVal = -2147483648;
+var signVal = 4294967296;
 
 /**
  * Helper function to return value of named register
@@ -39,15 +40,17 @@ function add() {
         src2 = getRegisterVal("registerThree");
     }
     var result = src1 + src2;
-    if (signed == "u") {
-        result = result % maxVal;
+    if (result <= maxVal && result >= minVal) {
         setRegisterVal("registerOne", result);
-    } else if (result <= maxVal && result >= minVal) {
+    } else if (signed == "u") {
+        var compare = result + signVal;
+        compare = compare % signVal;
+        compare = compare - signVal;
+        result = compare;
         setRegisterVal("registerOne", result);
     } else {
         alert("overflow error");
-    }
-    
+    }  
 }
 
 /**
