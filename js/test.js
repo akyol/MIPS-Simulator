@@ -51,6 +51,69 @@ function addImmediateTest() {
     console.log('The result is ' + getRegisterVal("registerOne"));
 }
 
+function addRegisterUnsignedTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val(""); // register: "", immediate: "i"
+    $("#filterSigned").val("u"); // signed: "", unsigned: "u"
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", -5);
+
+    $("#registerThree").val("a1");
+    setRegisterVal("registerThree", -6);
+
+    chooseOperation();
+    console.log('The result is ' + getRegisterVal("registerOne"));
+}
+
+function addImmediateUnsignedTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val("i"); // register: "", immediate: "i"
+    $("#filterSigned").val("u"); // signed: "", unsigned: "u"
+
+    $("#registerOne").val("v0");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", -6);
+
+    $("#immediate").val(12);
+
+    chooseOperation();
+    console.log('The result is ' + getRegisterVal("registerOne"));
+}
+
+function addRegisterOverflowTest() {
+    
+    $("#filterOpcode").val("add");
+    $("#filterMode").val(""); // register: "", immediate: "i"
+    $("#filterSigned").val(""); // signed: "", unsigned: "u"
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", 1);
+
+    $("#registerThree").val("a1");
+    setRegisterVal("registerThree", 2147483647);
+
+    chooseOperation();
+    console.log('The result is ' + getRegisterVal("registerOne"));
+}
+
+function addImmediateOverflowTest() {
+    $("#filterOpcode").val("add");
+    $("#filterMode").val("i"); // register: "", immediate: "i"
+    $("#filterSigned").val(""); // signed: "", unsigned: "u"
+
+    $("#registerOne").val("v0");
+
+    $("#registerTwo").val("a0");
+    setRegisterVal("registerTwo", 2147483647);
+
+    $("#immediate").val(1);
+
+    chooseOperation();
+    console.log('The overflow result is ' + getRegisterVal("registerOne"));
+}
+
 function beqTest(){
     $("#filterOpcode").val("beq");
     $("#filterOpcode").trigger("change");
