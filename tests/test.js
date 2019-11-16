@@ -5,9 +5,9 @@
  */
 
 
- /**
- * Test cases for MIPS Simulator
- */
+/**
+* Test cases for MIPS Simulator
+*/
 
 
 // next test to do
@@ -15,9 +15,9 @@ var testCount = -1;
 
 // tests to do
 var tests = [addRegisterTest, addImmediateTest, addRegisterUnsignedTest, addImmediateUnsignedTest,
-            addRegisterOverflowTest, addImmediateOverflowTest, andRegisterTest, andImmediateTest,
-            orRegisterTest, orImmediateTest, storeWordTest, loadWordTest, beqTest, beqNotTest,
-            bneTest, bneNotTest, jTest, jrTest, zeroWriteTest];
+    addRegisterOverflowTest, addImmediateOverflowTest, andRegisterTest, andImmediateTest,
+    orRegisterTest, orImmediateTest, storeWordTest, loadWordTest, beqTest, beqNotTest,
+    bneTest, bneNotTest, jTest, jrTest, zeroWriteTest];
 
 // when next button is clicked load next arguments
 $(window).on('load', function () {
@@ -51,11 +51,15 @@ function resetArguments() {
     for (var i = 0; i < registers.length; i++) {
         $("#" + registers[i]).val(0);
     }
+    for (var i = 0; i < 10; i++) {
+        memory[i] = 0;
+        $("#m" + i).html(0);
+    }
 }
 
 /**
  * tests if add register based works accordingly
- */ 
+ */
 function addRegisterTest() {
     $("#filterOpcode").val("add");
     $("#filterMode").val(""); // register: "", immediate: "i"
@@ -76,7 +80,7 @@ function addRegisterTest() {
 
 /**
  * tests if add immediate based works accordingly
- */ 
+ */
 function addImmediateTest() {
     $("#filterOpcode").val("add");
     $("#filterMode").val("i"); // register: "", immediate: "i"
@@ -176,12 +180,12 @@ function addImmediateOverflowTest() {
 
 /**
  * tests if beq works accordingly
- */ 
-function beqTest(){
+ */
+function beqTest() {
     $("#filterOpcode").val("beq");
 
     $("#filterOpcode").trigger("change");
-    
+
     $("#registerOne").val("a0");
     setRegisterVal("registerOne", 1);
 
@@ -195,12 +199,12 @@ function beqTest(){
 
 /**
  * tests if beq does not advance when not equal
- */ 
-function beqNotTest(){
+ */
+function beqNotTest() {
     $("#filterOpcode").val("beq");
 
     $("#filterOpcode").trigger("change");
-    
+
     $("#registerOne").val("a0");
     setRegisterVal("registerOne", 2);
 
@@ -214,12 +218,12 @@ function beqNotTest(){
 
 /**
  * tests if bne works accordingly
- */ 
-function bneTest(){
+ */
+function bneTest() {
     $("#filterOpcode").val("bne");
 
     $("#filterOpcode").trigger("change");
-    
+
     $("#registerOne").val("a0");
     setRegisterVal("registerOne", 1);
 
@@ -233,12 +237,12 @@ function bneTest(){
 
 /**
  * tests if bne does not advance when equals
- */ 
-function bneNotTest(){
+ */
+function bneNotTest() {
     $("#filterOpcode").val("bne");
 
     $("#filterOpcode").trigger("change");
-    
+
     $("#registerOne").val("a0");
     setRegisterVal("registerOne", 1);
 
@@ -253,11 +257,11 @@ function bneNotTest(){
 /**
  * tests if j works accordingly
  */
-function jTest(){
+function jTest() {
     $("#filterOpcode").val("j");
 
     $("#filterOpcode").trigger("change");
-    
+
     $("#immediate").val(3);
 
     // look for pc = 7
@@ -266,11 +270,11 @@ function jTest(){
 /**
  * tests if jr works accordingly
  */
-function jrTest(){
+function jrTest() {
     $("#filterOpcode").val("jr");
-    
+
     $("#filterOpcode").trigger("change");
-    
+
     $("#registerOne").val("a0");
     setRegisterVal("registerOne", 1);
 
@@ -279,7 +283,7 @@ function jrTest(){
 
 /**
  * tests if and register based works accordingly
- */ 
+ */
 function andRegisterTest() {
     $("#filterOpcode").val("and");
     $("#filterMode").val(""); // register: "", immediate: "i"
@@ -338,7 +342,7 @@ function orRegisterTest() {
 
 /**
  * tests if or immediate based works accordingly
- */ 
+ */
 function orImmediateTest() {
     $("#filterOpcode").val("or");
     $("#filterMode").val("i"); // register: "", immediate: "i"
@@ -357,7 +361,7 @@ function orImmediateTest() {
 
 /**
  * tests if store word works accordingly
- */ 
+ */
 function storeWordTest() {
     $("#filterOpcode").val("sw");
 
@@ -375,7 +379,7 @@ function storeWordTest() {
 
 /**
  * tests if load word works accordingly
- */ 
+ */
 function loadWordTest() {
     $("#filterOpcode").val("lw");
 
@@ -396,7 +400,7 @@ function loadWordTest() {
 
 /**
  * tests if writing zero fails
- */ 
+ */
 function zeroWriteTest() {
     $("#filterOpcode").val("add");
     $("#filterMode").val(""); // register: "", immediate: "i"
