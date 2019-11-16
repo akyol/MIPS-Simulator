@@ -1,4 +1,4 @@
-th {
+th, h1, h2 {
   text-align: center;
 }
 
@@ -27,11 +27,7 @@ textarea {
 #register{
   margin: 20px;
   height: 571px; 
-  overflow-y: scroll; 
-}
-
-#register_td{
-  padding: 15px;
+  overflow-y:scroll;
 }
 
 #body{
@@ -47,7 +43,13 @@ textarea {
   height:300px;
 }
 
-#wrapper{
-  width: 1000px; margin-left: auto; margin-right: auto;
+.row {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
 }
 
+.column {
+  flex: 50%;
+}
